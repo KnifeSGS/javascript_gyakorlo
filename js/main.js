@@ -3,7 +3,8 @@
 // 1. Írasd ki egy tetszőleges elemszámú, csak egész számokat tartalmazó tömb 
 // legkisebb elemét!
 
-const arrTest = [24, 8, 46, 10, 52, 7, 57, 5, 91];
+const arrTest = [24, 8, 23, 46, 23, 10, 52, 7, 57, 5, 91];
+const arrFloat = [654.654, 66.66, 465.46, 6.65, 65.651, 665.46, 4.654]
 
 function getMinElement(tomb) {
     let min = tomb[0];
@@ -79,26 +80,31 @@ getParos(arrTest);
 // 6. Írasd ki egy tetszőleges elemszámú, csak egész számokat tartalmazó tömb 
 // második legkisebb elemét!
 
-function getSecondSmall(tomb) {
-    let csere;
-    let second;
+function bubbleSort(arr) {
+    let swap;
     do {
-        csere = false;
-        for (let i = 0; i < tomb.length - 1; i += 1) {
-            if (tomb[i] > tomb[i + 1]) {
-                let temp = tomb[i];
-                tomb[i] = tomb[i + 1];
-                tomb[i + 1] = temp;
-                csere = true;
+        swap = false;
+        for (let i = 0; i < arr.length - 1; i += 1) {
+            if (arr[i] > arr[i + 1]) {
+                let temp = arr[i];
+                arr[i] = arr[i + 1];
+                arr[i + 1] = temp;
+                swap = true;
             }
         }
-    } while (csere)
-    second = tomb[1];
-    console.log('6. ' + second);
-    return tomb;
+    } while (swap)
+    return arr;
 }
 
-getSecondSmall(arrTest);
+function getSecondSmall(arr, nth) {
+    const sortedArr = bubbleSort(arr);
+    if (nth > arr.length) {
+        return arr[arr.length -1]
+    }
+    return sortedArr[nth - 1];
+}
+
+console.log('6. ' + getSecondSmall(arrTest, 2));
 
 // 7. Írasd ki egy tetszőleges elemszámú, csak egész számokat tartalmazó tömb 
 // harmadik legnagyobb elemét!
@@ -145,20 +151,7 @@ console.log('8. ' + result);
 // Nézz utána mi az, milyen feltételei vannak, és hogyan valósítható meg!
 
 function searchBinary(tomb, keres) {
-    let csere;
-    let second;
-    do {
-        csere = false;
-        for (let i = 0; i < tomb.length - 1; i += 1) {
-            if (tomb[i] > tomb[i + 1]) {
-                let temp = tomb[i];
-                tomb[i] = tomb[i + 1];
-                tomb[i + 1] = temp;
-                csere = true;
-            }
-        }
-    } while (csere)
-    second = tomb[1];
+    bubbleSort(tomb);
 
     let start = 0;
     let end = tomb.length - 1;
@@ -167,14 +160,16 @@ function searchBinary(tomb, keres) {
         if (tomb[mid] === keres) {
             return true
         } 
-        else if (tomb[mid] < keres)
+        else if (tomb[mid] < keres) {
             start = mid + 1;
-        else
+        }
+        else {
             end = mid - 1;
-        // counter += 1;
+        }
     }
     return false;
 }
+
 let eredmeny = searchBinary(arrTest, 23) 
 console.log('9. ' + eredmeny);
 
@@ -182,9 +177,28 @@ console.log('9. ' + eredmeny);
 // tömb (feltételezzük, hogy beágyazott tömböt, objektumot nem tartalmaz) hányszor 
 // tartalmazza a 23-as számot!
 
+/* function searchNumberCounter(arr, num) {
+    let counter = 0;
+    for (let i = 0; i < arr.length; i += 1) {
+        if(arr[i] == 2) {
+            counter += 1;
+        }
+    }
+    return counter;
+}
+
+console.log('10. ' + searchNumberCounter(arrTest, 23)); */
+
 // 11. Rendezd a javított buborékos rendezés algoritmus (nézz utána mi az, ha nem 
 // ismered) segítségével egy tetszőleges elemszámú, csak lebegőpontos számokat 
 // tartalmazó tömb elemeit növekvő sorrendbe! Írasd ki a rendezett tömböt!
+
+function sortFloat(arr) {
+    bubbleSort(arr);
+    return arr;
+}
+
+console.log('11. ' + sortFloat(arrFloat))
 
 // 12. Rendezd a javított buborékos rendezés algoritmus (nézz utána mi az, ha 
 // nem ismered) segítségével egy tetszőleges elemszámú, beágyazott tömb, és 
