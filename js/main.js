@@ -3,7 +3,7 @@
 // 1. Írasd ki egy tetszőleges elemszámú, csak egész számokat tartalmazó tömb 
 // legkisebb elemét!
 
-const arrTest = [24, 46, 10, 57, 5, 91];
+const arrTest = [24, 8, 46, 10, 52, 7, 57, 5, 91];
 
 function getMinElement(tomb) {
     let min = tomb[0];
@@ -79,29 +79,104 @@ getParos(arrTest);
 // 6. Írasd ki egy tetszőleges elemszámú, csak egész számokat tartalmazó tömb 
 // második legkisebb elemét!
 
+function getSecondSmall(tomb) {
+    let csere;
+    let second;
+    do {
+        csere = false;
+        for (let i = 0; i < tomb.length - 1; i += 1) {
+            if (tomb[i] > tomb[i + 1]) {
+                let temp = tomb[i];
+                tomb[i] = tomb[i + 1];
+                tomb[i + 1] = temp;
+                csere = true;
+            }
+        }
+    } while (csere)
+    second = tomb[1];
+    console.log('6. ' + second);
+    return tomb;
+}
+
+getSecondSmall(arrTest);
+
 // 7. Írasd ki egy tetszőleges elemszámú, csak egész számokat tartalmazó tömb 
 // harmadik legnagyobb elemét!
+
+function getThirdHighest(tomb) {
+    let csere;
+    let third;
+    do {
+        csere = false;
+        for (let i = 0; i < tomb.length - 1; i += 1) {
+            if (tomb[i] < tomb[i + 1]) {
+                let temp = tomb[i];
+                tomb[i] = tomb[i + 1];
+                tomb[i + 1] = temp;
+                csere = true;
+            }
+        }
+    } while (csere)
+    third = tomb[2];
+    console.log('7. ' + third);
+    return tomb;
+}
+
+getThirdHighest(arrTest);
 
 // 8. Írd ki (igen vagy nem), hogy egy tetszőlegese elemszámú, bármilyen típusú 
 // elemeket tartalmazó tömb (feltételezzük, hogy beágyazott tömböt, objektumot, 
 // egyéb iterálható elemet nem tartalmaz) tartalmazza-e a 23-as számot! Használj 
 // lineáris keresést!
 
-function container(tomb) {
-    let contain = false;
-    for ( let i = 0; i < tomb.length && contain == false; i += 1) {
-        if (tomb[i] == 23) {
-            contain = true
+function searchNumber(tomb, search) {
+    for ( let i = 0; i < tomb.length; i += 1) {
+        if (tomb[i] === search) {
+            return true;
         }
     }
-    console.log('8. ' + contain)
+    return false;
 }
-
-container(arrTest);
+let result = searchNumber(arrTest, 23);
+console.log('8. ' + result);
 
 // 9. Írd ki (igen vagy nem), hogy egy tetszőlegese elemszámú, csak egész számokat 
 // tartalmazó tömb tartalmazza-e a 23-as számot! Használj logaritmikus keresést! 
 // Nézz utána mi az, milyen feltételei vannak, és hogyan valósítható meg!
+
+function searchBinary(tomb, keres) {
+    let csere;
+    let second;
+    do {
+        csere = false;
+        for (let i = 0; i < tomb.length - 1; i += 1) {
+            if (tomb[i] > tomb[i + 1]) {
+                let temp = tomb[i];
+                tomb[i] = tomb[i + 1];
+                tomb[i + 1] = temp;
+                csere = true;
+            }
+        }
+    } while (csere)
+    second = tomb[1];
+
+    let start = 0;
+    let end = tomb.length - 1;
+    while (start <= end) {
+        let mid = Math.floor((start + end) / 2);
+        if (tomb[mid] === keres) {
+            return true
+        } 
+        else if (tomb[mid] < keres)
+            start = mid + 1;
+        else
+            end = mid - 1;
+        // counter += 1;
+    }
+    return false;
+}
+let eredmeny = searchBinary(arrTest, 23) 
+console.log('9. ' + eredmeny);
 
 // 10. Írd ki, hogy egy tetszőlegese elemszámú, bármilyen típusú elemeket tartalmazó 
 // tömb (feltételezzük, hogy beágyazott tömböt, objektumot nem tartalmaz) hányszor 
