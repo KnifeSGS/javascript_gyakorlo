@@ -135,9 +135,9 @@ getThirdHighest(arrTest);
 // egyéb iterálható elemet nem tartalmaz) tartalmazza-e a 23-as számot! Használj 
 // lineáris keresést!
 
-function searchNumber(tomb, search) {
-    for ( let i = 0; i < tomb.length; i += 1) {
-        if (tomb[i] === search) {
+function searchNumber(arr, search) {
+    for ( let i = 0; i < arr.length; i += 1) {
+        if (arr[i] === search) {
             return true;
         }
     }
@@ -305,10 +305,107 @@ function equalizer(arr) {
 }
 
 console.log('14. ' + equalizer(arrEqNumString));
+
 // 15. Adott egy tetszőleges pozitív egész számokat tartalmazó tömb. Válogassuk 
 // szét külön egy paros, és paratlan nevezetű tömbbe a páros, és páratlan számokat! 
 // Írjuk ki a 2 tömböt!
 
+function sortEven(arr) {
+    const even = [];
+    for (let i = 0; i < arr.length; i += 1) {
+        if(arr[i] % 2 === 0) {
+            even.push(arr[i]);
+        }
+    }
+    return even;
+}
+function sortOdd(arr) {
+    const odd = [];
+    for (let i = 0; i < arr.length; i += 1) {
+        if(arr[i] % 2 !== 0) {
+            odd.push(arr[i]);
+        }
+    }
+    return odd;
+}
+
+console.log('15. ' + 'Páros: ' + sortEven(arrTest) + ' ; Páratlan: '  + sortOdd(arrTest));
+
 // 16. Adott két azonos elemszámú, csak egész számokat tartalmazó tömb. Külön 
 // tömbökbe készítsük el a két tömb: metszetét, unióját, különbségét, és 
 // descartes szorzatát. Írassuk ki az új tömböket!
+
+const one = [32, 4, 81, 13, 1, 77];
+const two = [18, 1, 71, 49, 32, 77];
+
+function getSum(arr) {
+    let sum = 0;
+    for ( let i = 0; i < arr.length; i += 1) {
+        sum += arr[i];
+    }
+    return sum;
+}
+
+
+// a/ metszet
+
+function arrSegment(arr1, arr2) {
+    const seg = [];
+    for (let i = 0; i < arr1.length; i += 1) {
+        if ( arr1.find(element => element === arr2[i]) ) {
+            seg.push(arr2[i]);
+        }
+    }
+    return seg;
+}
+
+console.log('16/a. ' + arrSegment(one, two));
+
+// b/ unió
+
+function arrUni(arr1, arr2) {
+    let uni = [];
+    uni = uni.concat(arr1, arr2);
+    let unique = [...new Set(uni)];
+    bubbleSort(unique);
+/*     for (let i = 0; i < uni.length; i += 1) {
+        if (uni[i] === uni[i + 1]) {
+            uni.splice(uni[i], 1)
+        }
+    } */
+    return unique;
+
+}
+console.log('16/b. ' + arrUni(one, two));
+
+// c/ különbség
+function difference(arr1, arr2) {
+    const diff = getSum(arr1) - getSum(arr2);
+    return diff;
+}
+console.log('16/c. ' + difference(one, two));
+
+// d/ descartes szorzat
+function searchArrNum(arr1, arr2) {
+    
+}
+function arrDescartes(arr1, arr2) {
+    const desc = [];
+    for (let i = 0; i < arr1.length; i += 1) {
+        let multi = arr1[i] * arr2[0];
+        desc.push(multi)
+        multi = arr1[i] * arr2[1];
+        desc.push(multi)
+        multi = arr1[i] * arr2[2];
+        desc.push(multi)
+        multi = arr1[i] * arr2[3];
+        desc.push(multi)
+        multi = arr1[i] * arr2[4];
+        desc.push(multi)
+        multi = arr1[i] * arr2[5];
+        desc.push(multi)
+    }
+    return desc;
+}
+
+console.log('16/d. ' + arrDescartes(one, two));
