@@ -386,13 +386,12 @@ function difference(arr1, arr2) {
 console.log('16/c. ' + difference(one, two));
 
 // d/ descartes szorzat
-function searchArrNum(arr1, arr2) {
-    
-}
+
 function arrDescartes(arr1, arr2) {
     const desc = [];
+    let multi = [];
     for (let i = 0; i < arr1.length; i += 1) {
-        let multi = arr1[i] * arr2[0];
+        multi = arr1[i] * arr2[0];
         desc.push(multi)
         multi = arr1[i] * arr2[1];
         desc.push(multi)
