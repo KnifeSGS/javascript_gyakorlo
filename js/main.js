@@ -177,17 +177,17 @@ console.log('9. ' + eredmeny);
 // tömb (feltételezzük, hogy beágyazott tömböt, objektumot nem tartalmaz) hányszor 
 // tartalmazza a 23-as számot!
 
-/* function searchNumberCounter(arr, num) {
+function searchNumberCounter(arr, num) {
     let counter = 0;
-    for (let i = 0; i < arr.length; i += 1) {
-        if(arr[i] == 2) {
+    for ( let i = 0; i < arr.length; i += 1) {
+        if (arr[i] === num) {
             counter += 1;
         }
     }
     return counter;
 }
 
-console.log('10. ' + searchNumberCounter(arrTest, 23)); */
+console.log('10. ' + searchNumberCounter(arrTest, 23));
 
 // 11. Rendezd a javított buborékos rendezés algoritmus (nézz utána mi az, ha nem 
 // ismered) segítségével egy tetszőleges elemszámú, csak lebegőpontos számokat 
@@ -205,6 +205,52 @@ console.log('11. ' + sortFloat(arrFloat))
 // objektum kivételével bármilyen típusú elemeket tartalmazó tömb elemeit 
 // csökkenő sorrendbe! A nem szám típusú elemeket rakd a tömb végére az eredeti 
 //sorrendbe. Írasd ki a rendezett tömböt!
+const arrVariable = [435, 8, true, NaN, 'hello', 33, 'szia', 346, 67.10, 678, false, 235, 225];
+
+function bubbleSortDesc(arr) {
+    let swapped;
+    do {
+        swapped = false;
+        for (let i = 0; i < arr.length - 1; i += 1) {
+            if (arr[i] < arr[i + 1]) {
+                let temp = arr[i];
+                arr[i] = arr[i + 1];
+                arr[i + 1] = temp;
+                swapped = true;
+            }
+        }
+    } while (swapped)
+    return arr;
+}
+
+function filterByNumbers(arr) {
+    const numbers = [];
+    for (let i = 0; i < arr.length; i += 1) {
+        if (typeof arr[i] === 'number' && !Number.isNaN(arr[i])) {
+            numbers.push(arr[i])
+        }
+    }
+    return numbers;
+}
+
+function filterByNotNumbers(arr) {
+    const notNumbers = [];
+    for (let i = 0; i < arr.length; i += 1) {
+        if (typeof arr[i] !== 'number' || Number.isNaN(arr[i])) {
+            notNumbers.push(arr[i])
+        }
+    }
+    return notNumbers;
+}
+
+function customSorting(arr) {
+    const numbers = filterByNumbers(arr);
+    const notNumbers = filterByNotNumbers(arr);
+    const sortedArr = bubbleSortDesc(numbers);
+    return sortedArr.concat(notNumbers);
+}
+
+console.log('12. ' + customSorting(arrVariable));
 
 // 13. Adott egy tetszőleges elemszámú, csak egész számokat tartalmazó tömb. A 
 // tömb elemeit rendezzük növekvő sorrendbe. Ezután a felhasználótól kérjünk be 
@@ -212,11 +258,53 @@ console.log('11. ' + sortFloat(arrFloat))
 // A számot szúrjuk be a tömbbe úgy, hogy a tömb továbbra is rendezett maradjon, 
 // tehát a megfelelő indexű helyre kerüljön be a plusz elem.
 // Írasd ki a rendezett tömböt!
+const arrInsert = [435, 567, 8, 435, 345, 677];
+
+/* function custom13(arr) {
+    const inputNumber = parseInt(prompt('Adj meg egy számot'), 10);
+    arr.push(inputNumber);
+    const sortedArray = bubbleSortAsc(arr);
+    return sortedArray;
+} */
+
+function getIndex(arr, value) {
+    for (let i = 0; i < arr.length; i += 1) {
+        if (arr[i] > value) {
+            return i;
+        }
+    }
+}
+
+function insertNumber(arr) {
+    let sortedArray = bubbleSort(arr);
+    const inputNumber = parseInt(prompt('Adj meg egy számot'), 10);
+    if (!Number.isNaN(inputNumber)) {
+        const index = getIndex(sortedArray, inputNumber);
+        sortedArray.splice(index, 0, inputNumber);
+    }
+    return sortedArray;
+}
+
+console.log('13. ' + insertNumber(arrInsert));
 
 // 14. Adott egy tömb, mely azonos darabú egész számot, és szöveget tartalmaz 
 // véletlenszerű sorrendben. Rendezzük úgy a tömböt, hogy minden szám után egy 
 // string következzen! Írasd ki a rendezett tömböt!
 
+const arrEqNumString = ['egy', 67, 12, 54, 'négy', 85, 'negyvenkettő', 'harminc']
+
+
+function equalizer(arr) {
+    const numbers = filterByNumbers(arr);
+    const notNumbers = filterByNotNumbers(arr);
+    const ordered = [];
+    for (let i = 0; i < numbers.length; i += 1) {
+        ordered.push(numbers[i], notNumbers[i])
+    }
+    return ordered;
+}
+
+console.log('14. ' + equalizer(arrEqNumString));
 // 15. Adott egy tetszőleges pozitív egész számokat tartalmazó tömb. Válogassuk 
 // szét külön egy paros, és paratlan nevezetű tömbbe a páros, és páratlan számokat! 
 // Írjuk ki a 2 tömböt!
