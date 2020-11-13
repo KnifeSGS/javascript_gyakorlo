@@ -380,7 +380,8 @@ console.log('16/b. ' + arrUni(one, two));
 
 // c/ különbség
 function difference(arr1, arr2) {
-    const diff = getSum(arr1) - getSum(arr2);
+    let diff = [];
+    diff = arr1.filter(x => !arr2.includes(x)).concat(arr2.filter(y => !arr1.includes(y)));
     return diff;
 }
 console.log('16/c. ' + difference(one, two));
@@ -389,20 +390,10 @@ console.log('16/c. ' + difference(one, two));
 
 function arrDescartes(arr1, arr2) {
     const desc = [];
-    let multi = [];
     for (let i = 0; i < arr1.length; i += 1) {
-        multi = arr1[i] * arr2[0];
-        desc.push(multi)
-        multi = arr1[i] * arr2[1];
-        desc.push(multi)
-        multi = arr1[i] * arr2[2];
-        desc.push(multi)
-        multi = arr1[i] * arr2[3];
-        desc.push(multi)
-        multi = arr1[i] * arr2[4];
-        desc.push(multi)
-        multi = arr1[i] * arr2[5];
-        desc.push(multi)
+      for (let j = 0; j < arr2.length; j += 1) {
+          desc.push(arr1[i] * arr2[j]);
+      }
     }
     return desc;
 }
