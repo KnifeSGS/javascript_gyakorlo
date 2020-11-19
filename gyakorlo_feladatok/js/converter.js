@@ -1,24 +1,27 @@
 'use strict';
 
-const feet = parseInt(document.querySelector('.converter__feet'));
-const inch = parseInt(document.querySelector('.converter__inch'));
+const feet = document.querySelector('.converter__feet');
+const inch = document.querySelector('.converter__inch');
 const result = document.querySelector('.converter__result');
 const button = document.querySelector('.converter__btn');
-const form = document.querySelector('form');
 
-form.addEventListener('submit', function(e) {
-    e.preventDefault();
-    if (isNaN(feet) || isNaN(inch)) {
-        result.textContent = "Kérem adjon meg valós számot!";
-    } else if (feet < 0) {
-        result.textContent = "A minimum érték 0";
-    } else if ( inch < 0 || inch > 12) {
-        result.textContent = "Az érték 0-12 között választható"
+
+function calcCentimeter() {
+    const feetValue = parseInt(feet.value);
+    const inchValue = parseInt(inch.value);
+    if (isNaN(feetValue) || isNaN(inchValue)) {
+        result.innerText = 'Ez nem szám!';
+    } else if (inchValue < 0 || feetValue < 0) {
+        result.innerText = 'Kérem pozitív számot adjon meg!';
+    } else if (inchValue > 12) {
+        result.innerText = 'Az inch értéke 0 és 12 között lehet';
     } else {
-        let total = (feet*12) + inch;
-        result.textContent = '$(total) cm'
-        document.querySelector('.converter__feet').value = '';
-        document.querySelector('.converter__inch').value = '';
-    } 
-})
+        let resultValue = 2.54 * ((feetValue * 12) + inchValue);
+        return(result.innerText = resultValue + ' cm');
+    }
+}
+
+(function buttonCLick() {
+    button.addEventListener('click', calcCentimeter)
+})()
 

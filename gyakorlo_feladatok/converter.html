@@ -10,14 +10,24 @@
     <form action="" class=converter>
         <div class="title">
             <h2>
-                Konvert mágus</div>
+                Konvert mágus
             </h2>
-        <label for="feet" class="converter__feetLabel">Láb</label>
-        <input type="text" id="feet" class="converter__feet">
-        <label for="inch" class="converter__inchLabel">Inch</label>
-        <input type="text" id="inch" class="converter__inch">
-        <input type="submit" class="converter__btn" value="Átalakítás cm-re!">
-        <div class="converter__result"></div>
+        </div>
+        <div class="converter__feetDiv">
+            <label for="feet" class="converter__feetLabel">Láb</label>
+            <input type="text" id="feet" class="converter__feet">
+        </div>
+        <div class="converter__inchDiv">
+            <label for="inch" class="converter__inchLabel">Inch</label>
+            <input type="text" id="inch" class="converter__inch">
+            <small class="converter__inchHelp">Az inch értéke 0-12 között választható</small>
+        </div>
+        <div class="converter__buttonDiv">
+            <input type="button" class="converter__btn" value="Átalakítás cm-re!">
+        </div>
+        <div class="converter__resultDiv">
+            <div class="converter__result"></div>
+        </div>
     </form>
 
     <script src="./js/converter.js"></script>
