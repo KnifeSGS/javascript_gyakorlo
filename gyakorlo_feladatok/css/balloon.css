@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+
+* {
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+.balloon {
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    height: 100%;
+    margin-top: 2rem;
+}
+
+.title, .balloon__win {
+    text-align: center;
+    padding-bottom: 1rem;
+}
+
+.balloon__buttons {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.balloon__colors {
+    border: transparent;
+    border-radius: 90%;
+    padding: 3rem;
+    margin: .5rem;
+    font-size: 0;
+}
+
+.balloon__colors:focus {
+    outline: none;
+}
+
+
+.balloon__colors--orange {
+    background-color: rgb(248, 155, 6);
+    color: rgb(248, 155, 6);
+}
+
+.balloon__colors--green {
+    background-color: rgb(10, 240, 10);
+    color: rgb(10, 240, 10);
+}
+
+.balloon__colors--blue {
+    background-color: rgb(30, 50, 250);
+    color: rgb(30, 50, 250);
+}
+
+.balloon__colors--yellow {
+    background-color: rgb(230, 240, 20);
+    color: rgb(230, 240, 20);
+}
+
+.balloon__colors--red {
+    background-color: rgb(230, 23, 20);
+    color: rgb(230, 23, 20);
+}
+
+.balloon__win {
+    display: none;
+}
