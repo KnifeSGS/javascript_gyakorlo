@@ -72,4 +72,10 @@ body {
 
 .balloon__win {
     display: none;
+    justify-content: center;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 400;
+    color: rgb(230, 23, 20);
+    margin-top: 40%;
 }
