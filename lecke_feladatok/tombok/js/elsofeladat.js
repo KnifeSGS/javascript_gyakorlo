@@ -12,10 +12,7 @@ const afaOsszesito = arr => {
     .map(item => item * 1.27)
     .reduce((previousValue, currentValue) => previousValue + currentValue);
     return sumAfasTomb;
-}
+};
 
-// const sumAfasTomb = egeszSzamosTomb
-
-// console.log(sumAfasTomb);
 console.log(afaOsszesito(egeszSzamosTomb));
 
