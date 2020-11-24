@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        const strArr1 = ['egy', 'kettő    ', 'három', 'négy'];
+        const strArr2 = ['négy', 'öt', 'hat   '];
+        let results = [];
+
+        // 1. függvény: első paraméterként egy karaktert kap, a többi paraméter pedig tetszőleges 
+        // számú tömb, amik stringeket tartalmaznak! A függvény összefűzi egy tömbbe az összes 
+        // elemet és visszaadja ezt az új tömböt
+        function multiString(char, ...arr) {
+            const charArr = Array.from(char);
+            newArr = [charArr, ...arr].flat();
+            makeUniq(newArr);
+        };
+        
+        // 2. függvény: egy paraméterként kapott tömbből eltávolítja az ismétlődő elemeket és 
+        // visszaadja az új tömböt
+        function makeUniq(arr) {
+            const noRepeat = arr.filter((item, index) => arr.indexOf(item) === index);
+            removeSpace(noRepeat);
+        }
+        
+        // 3. függvény: egy paraméterként kapott tömb összes elem elejéről és végéről levágja a 
+        // space karaktereket, visszaad egy új tömböt
+        function removeSpace(arr) {
+            const whiteSpaceArr = arr.map(item => item.trimEnd());
+            return results = whiteSpaceArr;
+        }
+        
+        // megjelenítés
+        multiString('a', strArr1, strArr2);
+        document.body.innerHTML = results
+
+        // a feladatból kimaradt
+        // const includesArr = noRepeat.filter(item => !item.includes(char));
+
+    </script>
+</body>
+</html>
