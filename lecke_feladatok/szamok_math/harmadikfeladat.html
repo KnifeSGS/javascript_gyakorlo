@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        'use strict';
+    //  Írj egy függvényt, ami a paraméterként megadott tízes 
+    // számrendszerbeli számot átkonvertálja kettes, nyolcas, és 
+    // tizenhatos számrendszerbe is! Ezeket az értékeket pedig egy 
+    // objectbe adja vissza! A property-k neve legyen: binary, octal, hexa.
+
+    const convertToBinary = (number) => {
+        return number.toString(2)
+    }
+    const convertToOctal = (number) => {
+        return number.toString(8)
+    }
+    const convertToHexa = (number) => {
+        return number.toString(16)
+    }
+
+    const convertObject = (num) => {
+        const convertedNumbers = {
+            binary: null,
+            octal: null,
+            hexa: null
+        }
+        convertedNumbers.binary = convertToBinary(num);
+        convertedNumbers.octal = convertToOctal(num);
+        convertedNumbers.hexa = convertToHexa(num);
+        return convertedNumbers;
+    }
+
+    console.log(convertObject(100));
+    console.log(convertObject(31));
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        'use strict';
+    //  Módosítsd úgy a függvényed, hogy paraméterként mind number, mind 
+    //  BigInt típusú adatokat is elfogadjon! Amennyiben valamelyik paraméter 
+    //  BigInt, úgy a number-eket is automatikusan konvertálja BigInt-é!
+
+    const adder = (a, ...z) => {
+        const numbers = [a, ...z].flat().reduce((a, z) => BigInt(a) + BigInt(z), 0)
+        return BigInt(numbers);
+    }
+    
+    console.log(adder(1,2,3));
+    console.log(adder(1543,2,3));
+
+    </script>
+</body>
+</html>

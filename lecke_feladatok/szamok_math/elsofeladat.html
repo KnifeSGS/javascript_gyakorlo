@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        'use strict';
+    //    Írj egy függvényt, ami a paraméterként kapott tetszőleges darabszámú, 
+    //    tetszőlegesen méretű egész számot összead, és visszatér az összeadás 
+    //    végeredményével! 
+    //    A paraméterként kapott értékek egyszerű number 
+    //    típusúak legyenek! 
+    //    Amennyiben bármelyik paraméter értéke, vagy a 
+    //    részeredmény meghaladja a biztonságos tartomány, automatikusan 
+    //    konvertáljad BigIntbe, és így számoljunk tovább, és természetesen a 
+    //    visszatérési érték is BigInt legyen!
+
+    const adder = (a, ...z) => {
+        const numbers = [a, ...z].flat().reduce((a, z) => BigInt(a) + BigInt(z), 0)
+        return BigInt(numbers);
+    }
+    
+    console.log(adder(1,2,3));
+    console.log(adder(1543,2,3));
+
+    </script>
+</body>
+</html>
