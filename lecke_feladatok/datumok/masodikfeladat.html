@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dátumok</title>
+</head>
+<body>
+
+
+    <script>
+        const elapsedWorkDays = (year) => {
+            const now = new Date();
+            let from = new Date();
+            from = new Date(year, 0, 1, 0, 0, 1, 0)
+            const elapsedDays = (now.getTime() - from.getTime()) / 1000 / 60 / 60 / 24;
+            const elapsedWeeks = (now.getTime() - from.getTime()) / 1000 / 60 / 60 / 24 / 7;
+            const weekEnds = elapsedWeeks * 2;
+            const elapsedWorkingDays = elapsedDays - weekEnds;
+            return elapsedWorkingDays;
+        }
+
+        console.log(elapsedWorkDays(2020));
+    </script>
+    
+</body>
+</html>

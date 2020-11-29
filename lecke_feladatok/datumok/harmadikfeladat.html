@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dátumok</title>
+</head>
+<body>
+
+
+    <script>
+        const datePresenter = (dateObj) => {
+            const dateObject = {short: '', long: ''};
+            const year = dateObj.getFullYear();
+            const month = dateObj.getMonth() + 1;
+            const day = dateObj.getDate();
+            const hour = dateObj.getHours();
+            const minute = dateObj.getMinutes();
+            const second = dateObj.getSeconds();
+            const shortMonth = monthShortName(month);
+            const longMonth = monthLongName(month);
+
+            const shortDate = () => {
+                const shortD = `${year}. ${shortMonth}. ${day}. ${hour}:${minute}`;
+                return shortD;
+            }
+            const longDate = () => {
+                const longD = `${year}. ${longMonth}. ${day}. ${hour}:${minute}:${second}`;
+                return longD;
+            }
+
+            dateObject.short = shortDate();
+            dateObject.long = longDate();
+
+            return dateObject;
+        }
+        
+        const monthShortName = (month) => {
+            const shortMonthNames = ['jan', 'febr', 'márc', 'ápr', 'máj', 'jún',
+                                     'júl', 'aug', 'szept', 'okt', 'nov', 'dec'];
+            const shortNames = shortMonthNames[month - 1]
+            return shortNames;
+        }
+
+        const monthLongName = (month) => {
+            const longMonthNames = ['január', 'február', 'március', 'április', 'május', 'jún',
+                                     'július', 'augusztus', 'szeptember', 'október', 'november', 'december'];
+            const longNames = longMonthNames[month - 1]
+            return longNames;
+        }
+
+        console.log(datePresenter(new Date));
+    </script>
+    
+</body>
+</html>
