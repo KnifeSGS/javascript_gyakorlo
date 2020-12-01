@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        const HU = {
+            date() {
+                const dateNow = new Date;
+                return dateNow.toLocaleDateString('hu-HU')
+            },
+            currency(amount) {
+                const huCurrency = new Intl.NumberFormat('hu-HU', {
+                    style: 'currency',
+                    currency: 'HUF'
+                });
+                return huCurrency.format(amount)
+            },
+            list(strArr) {
+                const operators = [', ', ' és ']
+                const arrStringObj = {};
+                const pusher = () => {
+                    arrStringObj.add(strArr.forEach(item => ))
+                } 
+
+                return arrString;
+            }
+        };
+
+        const sampleArray = ['első', 'második', 'harmadik'];
+
+        console.log(HU.date());
+        console.log(HU.currency(1024));
+        console.log(HU.list(sampleArray));
+
+    </script>
+</body>
+</html>

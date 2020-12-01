@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        const objectConverter = {
+            arrayToMap(array) {
+                const map = new Map();
+                array.forEach((value, index) => map.set(index, value));
+                return map
+            },
+            arrayToSet(array) {
+                const set = new Set();
+                array.forEach((value) => set.add(value));
+                return set
+            },
+            setToMap(set) {
+                const setMap = new Map();
+                set.forEach((value, index) => setMap.set(index, value));
+                return setMap
+            },
+            setToArray(set) {
+                const setArray = [];
+                const temp = Array.from(set)
+                setArray.push(temp)
+                return setArray
+            },
+            mapToArray(map) {
+                const mapArray = [];
+                const temp = Array.from(map)
+                mapArray.push(temp)
+                return mapArray
+            },
+            mapToSet(map) {
+                const mapSet = new Set();
+                map.forEach((value) => mapSet.add(value));
+                return mapSet
+            }
+        };
+
+        const sampleArray = [1, 2, 3]
+        console.log(objectConverter.arrayToMap(sampleArray));
+        console.log(objectConverter.arrayToSet(sampleArray));
+        console.log(objectConverter.setToMap(objectConverter.arrayToSet(sampleArray)));
+        console.log(objectConverter.setToArray(objectConverter.arrayToSet(sampleArray)));
+        console.log(objectConverter.mapToArray(objectConverter.arrayToMap(sampleArray)));
+        console.log(objectConverter.mapToSet(objectConverter.arrayToSet(sampleArray)));
+
+
+    </script>
+</body>
+</html>
