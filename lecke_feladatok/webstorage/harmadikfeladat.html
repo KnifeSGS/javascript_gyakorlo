@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button class="btn">Szinkron</button>
+    <div class="webstorage">
+        <div class="container">
+
+        </div>
+        <!-- <p class="firstName"></p> -->
+        <!-- <p class="lastName"></p> -->
+    </div>
+
+
+    <script>
+        'use strict';
+
+        const getServerData = (url) => {
+            let fetchInit = {
+                method: 'GET',
+                mode: 'cors',
+                cache: 'default'
+            };
+            return fetch(url, fetchInit).then(
+                data => data.json(),
+                err => console.error(err)
+            )
+        }
+
+        document.querySelector('.btn').addEventListener('click', function() {
+            getServerData('http://localhost:3000/users').then(
+                data => fillData(data)
+            )
+        })
+
+        const fillData = (data) => {
+            let container = document.querySelector('.container')
+            for (let row of data) {
+                let div = createAnyELement('div')
+                for (let k in row) {
+                    let p = createAnyELement('p')
+                    p.textContent = row[k];
+                    div.appendChild(p)
+                }
+                container.appendChild(div)
+            }
+            localStorage.setItem('userList', JSON.stringify(
+                data
+            ))
+        };
+
+        const createAnyELement = (name, attributes) => {
+            let element = document.createElement(name);
+            for (let k in attributes) {
+                element.setAttribute(k, attributes(k));
+            }
+            return element;
+        }
+
+
+
+    </script>
+</body>
+
+</html>

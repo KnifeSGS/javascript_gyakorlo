@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+    <script>
+        'use strict';
+
+        const setCookie = (name, value, expirationMinutes = 15, path = '/') => {
+            const now = new Date();
+            now.setTime(now.getTime() + (expirationMinutes * 60 * 1000));
+            const expires = now.toUTCString();
+            document.cookie = `${name}=${value};expires=${expires};path=${path}`;
+        };
+
+        const cookieName = 'token';
+        const cookieValue= 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c';
+
+        setCookie(cookieName, cookieValue, 15)
+
+
+
+    </script>
+</body>
+</html>
