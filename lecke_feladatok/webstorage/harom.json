@@ -1,19 +1,19 @@
 {
     "users": [
     {
-    "lastName": "John",
-    "firstName": "Doe"
+    "firstName": "John",
+    "lastName": "Doe"
     },
     {
-    "lastName": "Jane",
-    "firstName": "Doe"
+    "firstName": "Jane",
+    "lastName": "Doe"
     },
     {
-    "lastName": "Jack",
-    "firstName": "Doe"
+    "firstName": "Jack",
+    "lastName": "Doe"
     },
     {
-    "lastName": "Violet",
-    "firstName": "Doe"
+    "firstName": "Violet",
+    "lastName": "Doe"
     }
 ]}
