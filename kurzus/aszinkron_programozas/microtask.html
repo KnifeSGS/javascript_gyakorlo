@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <button class="click-me">Click</button>
+
+    <script>
+        'use strict';
+
+        const btn = document.querySelector('.click-me');
+
+        btn.addEventListener('click', () => {
+            console.log('Listener 1');
+
+            setTimeout(console.log, 0, 'setTimeOut 1')
+
+            Promise
+                .resolve('Promise 1')
+                .then(console.log)
+        })
+
+        btn.addEventListener('click', () => {
+            console.log('Listener 2');
+
+            setTimeout(console.log, 0, 'setTimeOut 2')
+
+            Promise
+                .resolve('Promise 2')
+                .then(console.log)
+        })
+    </script>
+</body>
+
+</html>
