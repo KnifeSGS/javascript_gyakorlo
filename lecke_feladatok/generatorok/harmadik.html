@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        'use strict'
+
+        console.log('--------- fibonacci square -----------');
+        function* fibonacci() {
+            let a = 1;
+            let b = 1;
+            while (true) {
+                [a, b] = [b, a + b];
+                yield b;
+            }
+        }
+
+        
+        function* squareGenerator() {
+            const fibo = fibonacci();
+            for (const num of fibo) {
+                yield num * num;
+            }
+        }
+
+        const id = squareGenerator();
+        console.log(id.next().value);
+        console.log(id.next().value);
+        console.log(id.next().value);
+        console.log(id.next().value);
+        console.log(id.next().value);
+        console.log(id.next().value);
+        console.log(id.next().value);
+    </script>
+</body>
+
+</html>
