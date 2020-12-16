@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        'use strict';
+
+        async function one() {
+            const promise = new Promise ((resolve, reject) => {
+                setTimeout(resolve, 1000, 1)
+            })
+            const result = await promise;
+            // csak async függvényen belül használható
+            console.log(result);
+            // return result nem fog működni, mert az a promise -t adja vissza
+            // függvényen belül használhatjuk csak vagy a lenti módon
+        }
+ 
+        one().then(console.log(object))
+    </script>
+</body>
+</html>
