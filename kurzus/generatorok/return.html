@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        'use strict'
+
+        const users = [{
+            firstName: 'Kiss',
+            lastName: 'József',
+            age: 18
+        },
+        {
+            firstName: 'Horváth',
+            lastName: 'Péter',
+            age: 34
+        },
+        {
+            firstName: 'Kováts',
+            lastName: 'Ilona',
+            age: 24
+        },
+        {
+            firstName: 'Nagy',
+            lastName: 'Antal',
+            age: 66
+        }]
+       
+        //return és yield együtt
+
+        function* generatorFunction() {
+            yield 1;
+            // return 'end';
+            // a return befejezi a futást, míg a yield nem
+            yield 2;
+            yield 3;
+        }
+
+        const generatorObject = generatorFunction();
+        console.log(generatorObject.next());
+
+        // ebben az esetben is befejezi a függvényt, inkább ezt használjuk ha meg akarjuk szakítani
+        generatorObject.return();
+    </script>
+</body>
+</html>

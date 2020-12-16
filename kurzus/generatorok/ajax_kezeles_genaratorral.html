@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        'use strict'
+
+        const urls = ['./data1.json', './data2.json']
+        
+        function responseHandler(gen) {
+            const result = gen.next();
+            const {
+                done,
+                value
+            } = result;
+            // if(!result.done) {
+            if(!done) {
+                // result.value
+                value
+                    .then((data) => data.json())
+                    .then((user) => console.log(user))
+                    .catch((error) => console.error(error));
+                responseHandler(gen);
+            }
+        }
+        
+        function* main() {
+            for(const url of urls) {
+                yield fetch(url);
+            }
+        }
+
+        const myGenerator = main();
+        // console.log(myGenerator.next());
+        responseHandler(myGenerator);
+    </script>
+</body>
+</html>

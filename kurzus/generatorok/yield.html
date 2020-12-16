@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        'use strict'
+
+        function* first() {
+            yield 1;
+            yield 2;
+        }
+
+        function* second() {
+            yield* first();
+            yield 3;
+            yield 4;
+            yield 5;
+        }
+
+        for (const value of second()) {
+            console.log(value);
+        }
+    </script>
+</body>
+</html>

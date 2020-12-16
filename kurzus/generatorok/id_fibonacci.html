@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        'use strict'
+
+        function* idGenerator() {
+            let id = 0;
+            while(true){
+                yield id += 1;
+            }
+        }
+
+        console.log('---------id: ----------------');
+        const id = idGenerator();
+        console.log(id.next());
+        console.log(id.next());
+        console.log(id.next());
+        console.log(id.next());
+        console.log(id.next());
+        console.log(id.next());
+
+        // fibonacci 1 1 2 3 5 8
+        function* fibonacci(current, next) {
+            while (true) {
+                next = current + next;
+                current = next - current;
+                yield next
+            }
+        }
+
+        console.log('---------fibonacci: ------------');
+        const fibo = fibonacci(1, 1);
+        console.log(fibo.next());
+        console.log(fibo.next());
+        console.log(fibo.next());
+        console.log(fibo.next());
+        console.log(fibo.next());
+        console.log(fibo.next());
+        console.log(fibo.next());
+        console.log(fibo.next());
+        console.log(fibo.next());
+    </script>
+</body>
+</html>
