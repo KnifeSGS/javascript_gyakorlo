@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        'use strict';
+
+        const objLiteral = {};
+
+        const objConstructor = new Object();
+
+        // konstruktor függvény esetén az első karakter nagy betű
+        function User(name, role) {
+            this.name = name;
+            this.role = role;
+        }
+
+        const johnDoe = new User('John Doe', 'user');
+        const janeDoe = new User('Jane Doe', 'admin');
+
+        console.log(johnDoe, janeDoe);
+
+    </script>
+</body>
+</html>

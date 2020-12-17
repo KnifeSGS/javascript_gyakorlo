@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        'use strict';
+
+        // tulajdonságok tulajdonságai
+
+        const user = {
+            name: 'John Doe'
+        };
+
+        Object.defineProperty(user, 'firstName', {
+            value: 'John',
+            // ha itt hozom létre, alapból minden false lesz (enumerable és configurable)
+            // nem lehet gettert és settert beállítani ha meg van adva a value vagy a writable
+            writable: false,
+            enumerable: true,
+            configurable: true
+        })
+
+        console.log(Object.getOwnPropertyDescriptor(user, 'name'));
+        // writable: true írható a prop
+        // enumerable: true felsorolható-e, iterációban megjelenik-e pl for loopban
+        // configurable: törölhető-e
+
+        console.log(Object.keys(user));
+
+    </script>
+</body>
+</html>
