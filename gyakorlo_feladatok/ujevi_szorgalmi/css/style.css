@@ -55,3 +55,18 @@ header {
 .data__coach, .data__rank, .data__group {
     display: flex;
 }
+
+.player__name--title, .player__position--title, .player__club--title {
+    display: flex;
+    font-weight: 600;
+}
+.data__coach--title, .data__rank--title, .data__group--title {
+    display: flex;
+    font-weight: 600;
+}
+
+.subTitle {
+    display: flex;
+    font-weight: 600;
+    padding-left: 10%;
+}
