@@ -1,0 +1,57 @@
+* {
+    box-sizing: border-box;
+    /* margin: 0; */
+}
+
+.body {
+    margin: 0;
+    padding: 0;
+
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.stripe {
+    padding: 1rem;
+    width: 20rem;
+    max-width: 90%;
+    display: flex;
+}
+
+.stripe-red {
+    background-color: #ff0000;
+}
+
+.stripe-white {
+    background-color: #ffffff;
+}
+
+.stripe-green {
+    background-color: #00cc47;
+}
+
+.title {
+    display: flex;
+    justify-content: center;
+}
+
+.data__table {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.data, .player {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding: 1rem;
+}
+
+.data__coach, .data__rank, .data__group {
+    display: flex;
+}
