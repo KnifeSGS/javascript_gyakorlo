@@ -1,0 +1,43 @@
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(240,240,250);
+}
+
+.logo {
+    background-color: rgb(86,62,122);
+    width: 4rem;
+    height: 4rem;
+    border-radius: 10px;
+    display: flex;
+    font-size: 2.8rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.email {
+    border-radius: 5px 5px 0 0;
+    border-bottom: none;
+}
+
+.password {
+    border-radius: 0 0 5px 5px;
+}
+
+.btn-special {
+    background-color: rgb(0,122,255);
+    border-radius: 5px;
+    border-style: none;
+    height: 2.5rem;
+    font-size: large;
+}
+
