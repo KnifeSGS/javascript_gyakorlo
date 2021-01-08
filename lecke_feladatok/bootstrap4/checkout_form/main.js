@@ -80,27 +80,26 @@ const countryStates = {
 const country = document.querySelector('#country');
 const state = document.querySelector('#state');
 
-function* chooseState(selectedCountry) {
-    for (const item of countryStates[selectedCountry]) {
-        yield item;
+const setState = () => {
+    const selectedCountry = country.value;
+    delOptionsList();
+    for (let i = 0; i < countryStates[selectedCountry].length; i += 1) {
+        let option = document.createElement('option');
+        option.textContent = countryStates[selectedCountry][i];
+        option.value = countryStates[selectedCountry][i];
+        state.add(option)
     }
 };
 
-const setState = (selectedCountry) => {
-        for (let i = 0; i < countryStates[selectedCountry].length; i += 1) {
-            console.log(countryStates[selectedCountry][i]);
-            let option = document.createElement('option');
-            option.textContent = countryStates[selectedCountry][i];
-            option.value = countryStates[selectedCountry][i];
-            state.add(option)
-        }
-    
-};
-
-const eventHandler = () => {
-    state.addEventListener('click', setState())
+const delOptionsList = () => {
+    let optionsLength = state.options.length
+    for (let i = optionsLength - 1; i >= 0; i -= 1) {
+        state.options[i] = null;
+    }
 }
 
-// const items = chooseState("Hungary");
-// console.log(items.next().value);
-setState('Hungary')
+const eventHandler = () => {
+    country.addEventListener('change', setState)
+}
+
+eventHandler()
